@@ -1,4 +1,4 @@
-# Microservices project
+## Microservices project
  
 This repository contains a microservices project, which uses the following modules that are part of Spring Cloud:
  - Spring Cloud Config Server
