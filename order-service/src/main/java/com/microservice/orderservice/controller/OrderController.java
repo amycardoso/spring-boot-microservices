@@ -17,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.UUID;
+import java.util.concurrent.ExecutorService;
 import java.util.function.Supplier;
 
 @RestController
@@ -28,9 +29,11 @@ public class OrderController {
 	private final InventoryClient inventoryClient;
 	private final Resilience4JCircuitBreakerFactory circuitBreakerFactory;
 	private final StreamBridge streamBridge;
+	private final ExecutorService traceableExecutorService;
 
 	@PostMapping
 	public String placeOrder(@RequestBody OrderDto orderDto) {
+		circuitBreakerFactory.configureExecutorService(traceableExecutorService);
 		Resilience4JCircuitBreaker circuitBreaker = circuitBreakerFactory.create("inventory");
 		Supplier<Boolean> booleanSupplier = () -> orderDto.getOrderLineItemsList().stream()
 				.allMatch(lineItem -> {
