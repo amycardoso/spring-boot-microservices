@@ -8,3 +8,5 @@ This repository contains a microservices project, which uses the following modul
  - Spring Cloud Sleuth
  - Spring Cloud Gateway
  - Spring Cloud Stream
+
+:construction: Centralized logging implementation for  microservices using ELK Stack (Elasticsearch, Logstash and Kibana)
