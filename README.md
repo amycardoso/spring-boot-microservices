@@ -11,3 +11,9 @@ This microservices project uses the following modules that are part of Spring Cl
 RabbitMQ was used as message broker.
 
 Also has a centralized logging implementation using ELK Stack (Elasticsearch, Logstash and Kibana)
+
+4 Services:
+ - Product Service
+ - Order Service
+ - Inventory Service
+ - Notification Service
