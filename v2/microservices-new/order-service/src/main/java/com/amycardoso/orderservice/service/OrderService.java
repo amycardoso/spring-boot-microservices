@@ -41,7 +41,6 @@ public class OrderService {
 
         log.info("Calling inventory service");
 
-        // Call Inventory Service, and create order if product is in stock
         InventoryResponse[] inventoryResponseArray = webClientBuilder.build().get()
                 .uri("http://inventory-service/api/inventory",
                         uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
